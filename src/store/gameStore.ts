@@ -67,6 +67,9 @@ interface GameStore {
   // 로그
   logs: LogEntry[];
 
+  // 자동 진행
+  autoPlay: boolean;
+
   // 액션
   setPlayerCount: (count: number) => void;
   startGame: (names: string[]) => void;
@@ -79,6 +82,7 @@ interface GameStore {
   executeCard: (card: GoldenKeyCard) => void;
   useFreePass: () => void;
   payRent: () => void;
+  toggleAutoPlay: () => void;
   resetGame: () => void;
 }
 
@@ -103,6 +107,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   welfareFund: 0,
   deck: [],
   logs: [],
+  autoPlay: false,
 
   setPlayerCount: (count) => set({ playerCount: count }),
 
@@ -741,6 +746,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
     }
   },
 
+  toggleAutoPlay: () => {
+    set((state) => ({ autoPlay: !state.autoPlay }));
+  },
+
   resetGame: () => {
     set({
       screen: 'lobby',
@@ -757,6 +766,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       welfareFund: 0,
       deck: [],
       logs: [],
+      autoPlay: false,
     });
   },
 }));

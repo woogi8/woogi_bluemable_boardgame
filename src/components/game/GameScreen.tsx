@@ -8,6 +8,7 @@ import GameLog from '../ui/GameLog';
 import PropertyMap from '../ui/PropertyMap';
 import GameResult from './GameResult';
 import { useGameStore } from '@/store/gameStore';
+import { useAutoPlay } from '@/hooks/useAutoPlay';
 
 // 화면 높이 기준으로 기본 셀 크기 계산
 function getDefaultCellSize() {
@@ -22,6 +23,10 @@ function getDefaultCellSize() {
 export default function GameScreen() {
   const message = useGameStore((s) => s.message);
   const resetGame = useGameStore((s) => s.resetGame);
+  const autoPlay = useGameStore((s) => s.autoPlay);
+  const toggleAutoPlay = useGameStore((s) => s.toggleAutoPlay);
+
+  useAutoPlay();
 
   const [cellSize, setCellSize] = useState(72);
 
@@ -111,6 +116,17 @@ export default function GameScreen() {
         <div className="flex flex-col gap-1.5 w-[200px]">
           <PlayerPanel />
           <GameLog />
+          <button
+            onClick={toggleAutoPlay}
+            className="py-1.5 px-3 font-bold text-white border-none rounded-md cursor-pointer"
+            style={{
+              fontSize: 11,
+              background: autoPlay ? '#E53935' : '#78909C',
+              animation: autoPlay ? 'pulse 1.5s infinite' : 'none',
+            }}
+          >
+            {autoPlay ? '⏸ Auto OFF' : '▶ Auto ON'}
+          </button>
           <button
             onClick={resetGame}
             className="py-1.5 px-3 font-bold text-white border-none rounded-md cursor-pointer"
