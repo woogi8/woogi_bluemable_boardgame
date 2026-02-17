@@ -9,7 +9,7 @@ export type TileType =
   | 'deserted_island'
   | 'welfare_pay'
   | 'welfare_receive'
-  | 'world_tour';
+  | 'space_travel';
 
 // 구역 (0: 없음, 1~4: 지역별, 9: 한국특수)
 export type Region = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
@@ -44,7 +44,6 @@ export type CardAction =
   | 'highway'
   | 'goTo'
   | 'goIsland'
-  | 'worldTour'
   | 'fundPayout'
   | 'moveBack'
   | 'olympics'

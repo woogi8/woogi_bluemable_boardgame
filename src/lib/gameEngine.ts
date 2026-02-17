@@ -231,19 +231,6 @@ export function executeGoldenKeyCard(
       };
     }
 
-    case 'worldTour': {
-      const newPlayers = players.map((p) =>
-        p.id === playerId
-          ? { ...p, position: 0, money: p.money + SALARY }
-          : p
-      );
-      return {
-        ...base,
-        players: newPlayers,
-        message: `🌍 ${player.name}: 세계일주 +${SALARY}`,
-      };
-    }
-
     case 'fundPayout': {
       const amount = welfareFund;
       const newPlayers = players.map((p) =>

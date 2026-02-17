@@ -40,12 +40,12 @@ export const BOARD_TILES: Tile[] = [
   { id: 28, name: '퀸엘리자베스호', type: 'transport', price: 25, rent: [25], group: -1, icon: '🚢', color: '#CE93D8' },
   { id: 29, name: '마드리드', type: 'city', price: 30, rent: [15, 75, 225, 675], group: 5, icon: '🇪🇸', color: '#D1C4E9' },
 
-  // ── 코너: 세계일주 (30) ──
-  { id: 30, name: '세계일주', type: 'world_tour', price: 0, rent: [0], group: -1, icon: '🌍', color: '#FFE082' },
+  // ── 코너: 우주여행 (30) ──
+  { id: 30, name: '우주여행', type: 'space_travel', price: 0, rent: [0], group: -1, icon: '🛸', color: '#9FA8DA' },
 
   // ── 우측 (도쿄→서울): id 31~39 ──
   { id: 31, name: '도쿄', type: 'city', price: 30, rent: [15, 75, 225, 675], group: 6, icon: '🇯🇵', color: '#90CAF9' },
-  { id: 32, name: '컬럼비아호', type: 'transport', price: 30, rent: [30], group: -1, icon: '🚀', color: '#CE93D8' },
+  { id: 32, name: '컬럼비아호', type: 'transport', price: 45, rent: [45], group: -1, icon: '🚀', color: '#CE93D8' },
   { id: 33, name: '파리', type: 'city', price: 32, rent: [16, 80, 240, 720], group: 6, icon: '🇫🇷', color: '#90CAF9' },
   { id: 34, name: '로마', type: 'city', price: 32, rent: [16, 80, 240, 720], group: 6, icon: '🇮🇹', color: '#90CAF9' },
   { id: 35, name: '황금열쇠', type: 'golden_key', price: 0, rent: [0], group: -1, icon: '🔑', color: '#FFF8E1' },

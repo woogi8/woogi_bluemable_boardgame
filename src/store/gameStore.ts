@@ -378,23 +378,39 @@ export const useGameStore = create<GameStore>((set, get) => ({
         return;
       }
 
-      // 세계일주
-      if (tile.type === 'world_tour') {
-        const newPlayers = allPlayers.map((p) =>
-          p.id === player.id
-            ? { ...p, position: 0, money: p.money + SALARY }
-            : p
-        );
+      // 우주여행 (30번) - 랜덤 위치로 이동
+      if (tile.type === 'space_travel') {
+        const columbiaOwner = ow[32];
+        let cost = 0;
+        if (columbiaOwner !== undefined && columbiaOwner !== player.id) {
+          cost = BOARD_TILES[32].rent[0];
+        }
+        const dest = Math.floor(Math.random() * BOARD_SIZE);
+        const newPlayers = allPlayers.map((p) => {
+          if (p.id === player.id)
+            return { ...p, position: dest, money: p.money - cost };
+          if (p.id === columbiaOwner && columbiaOwner !== player.id)
+            return { ...p, money: p.money + cost };
+          return p;
+        });
         const newLogs = addLog(
           store.logs,
-          `🌍 ${player.name}: 세계일주→출발 +${SALARY}`
+          `🛸 ${player.name}→${BOARD_TILES[dest].name}${cost ? ` (컬럼비아 -${cost})` : ''}`
         );
         set({
           players: newPlayers,
           logs: newLogs,
-          message: `🌍 세계일주! +${SALARY}만원`,
-          phase: 'done',
+          message: `🛸 우주여행→${BOARD_TILES[dest].name}!`,
         });
+        setTimeout(() => {
+          handleLanding(
+            { ...player, position: dest, money: player.money - cost },
+            BOARD_TILES[dest],
+            newPlayers,
+            ow,
+            bl
+          );
+        }, 400);
         return;
       }
 

@@ -11,7 +11,7 @@ export const GOLDEN_KEY_CARDS: GoldenKeyCard[] = [
   { id: 6, text: '관광여행: 서울로 이동!', action: 'goTo', dest: 39, icon: '🇰🇷', category: '이동', color: '#E3F2FD' },
   { id: 7, text: '무인도로 가시오! (월급 없음)', action: 'goIsland', icon: '🏝️', category: '이동', color: '#FFEBEE' },
   { id: 8, text: '사회복지기금 수령: 기금 접수처로!', action: 'goTo', dest: 20, icon: '💰', category: '이동', color: '#FFF9C4' },
-  { id: 9, text: '세계일주: 출발지로! (월급 수령)', action: 'worldTour', icon: '🌍', category: '이동', color: '#E3F2FD' },
+  { id: 9, text: '우주여행 초대권: 우주여행으로!', action: 'goTo', dest: 30, icon: '🛸', category: '이동', color: '#E3F2FD' },
   { id: 10, text: '사회기금 배당: 기금 전액 수령!', action: 'fundPayout', icon: '💰', category: '이동', color: '#E3F2FD' },
   { id: 11, text: '뒤로 2칸 가시오!', action: 'moveBack', amount: -2, icon: '⬅️', category: '이동', color: '#FFF3E0' },
   { id: 12, text: '뒤로 3칸 가시오!', action: 'moveBack', amount: -3, icon: '⬅️', category: '이동', color: '#FFF3E0' },
