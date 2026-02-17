@@ -108,9 +108,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   startGame: (names: string[]) => {
     const { playerCount } = get();
-    const players: Player[] = Array.from({ length: playerCount }, (_, i) => ({
-      id: i,
-      name: names[i]?.trim() || `P${i + 1}`,
+    // 턴 순서를 랜덤으로 섞기
+    const orderIndices = shuffle(Array.from({ length: playerCount }, (_, i) => i));
+    const players: Player[] = orderIndices.map((origIdx, newIdx) => ({
+      id: newIdx,
+      name: names[origIdx]?.trim() || `P${origIdx + 1}`,
       money: INITIAL_MONEY,
       position: 0,
       islandTurns: 0,
@@ -120,6 +122,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       lapsCompleted: 0,
     }));
 
+    const orderMsg = players.map((p, i) => `${i + 1}번: ${p.name}`).join(', ');
     set({
       screen: 'playing',
       players,
@@ -129,12 +132,15 @@ export const useGameStore = create<GameStore>((set, get) => ({
       doubleCount: 0,
       phase: 'roll',
       modal: null,
-      message: `🎮 게임 시작! ${players[0].name} 차례`,
+      message: `🎮 게임 시작! 순서: ${orderMsg}`,
       ownership: {},
       buildings: {},
       welfareFund: 0,
       deck: shuffle(GOLDEN_KEY_CARDS),
-      logs: [{ message: '🎮 부루마블 시작! (원판 40칸)', timestamp: Date.now() }],
+      logs: [
+        { message: '🎮 부루마블 시작! (원판 40칸)', timestamp: Date.now() },
+        { message: `🎲 턴 순서: ${orderMsg}`, timestamp: Date.now() },
+      ],
     });
   },
 
