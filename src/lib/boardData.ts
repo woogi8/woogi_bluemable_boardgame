@@ -26,8 +26,8 @@ export const BOARD_TILES: Tile[] = [
   { id: 18, name: '황금열쇠', type: 'golden_key', price: 0, rent: [0], group: -1, icon: '🔑', color: '#FFF8E1' },
   { id: 19, name: '오타와', type: 'city', price: 20, rent: [10, 50, 150, 450], group: 3, icon: '🇨🇦', color: '#C8E6C9' },
 
-  // ── 코너: 사회복지기금 수령처 (20) ──
-  { id: 20, name: '우주여행', type: 'space_travel', price: 0, rent: [0], group: -1, icon: '🛸', color: '#9FA8DA' },
+  // ── 코너: 사회복지기금 접수처 (20) ──
+  { id: 20, name: '사회복지기금', type: 'welfare_receive', price: 0, rent: [0], group: -1, icon: '💰', color: '#FFF9C4' },
 
   // ── 상단 (부에노스아이레스→마드리드): id 21~29 ──
   { id: 21, name: '부에노스아이레스', type: 'city', price: 22, rent: [11, 55, 160, 480], group: 4, icon: '🇦🇷', color: '#B2DFDB' },

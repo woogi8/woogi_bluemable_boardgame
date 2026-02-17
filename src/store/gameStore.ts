@@ -321,42 +321,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
         return;
       }
 
-      // 우주여행
-      if (tile.type === 'space_travel') {
-        const columbiaOwner = ow[32];
-        let cost = 0;
-        if (columbiaOwner !== undefined && columbiaOwner !== player.id) {
-          cost = BOARD_TILES[32].rent[0];
-        }
-        const dest = Math.floor(Math.random() * BOARD_SIZE);
-        const newPlayers = allPlayers.map((p) => {
-          if (p.id === player.id)
-            return { ...p, position: dest, money: p.money - cost };
-          if (p.id === columbiaOwner && columbiaOwner !== player.id)
-            return { ...p, money: p.money + cost };
-          return p;
-        });
-        const newLogs = addLog(
-          store.logs,
-          `🛸 ${player.name}→${BOARD_TILES[dest].name}${cost ? ` (-${cost})` : ''}`
-        );
-        set({
-          players: newPlayers,
-          logs: newLogs,
-          message: `🛸→${BOARD_TILES[dest].name}!`,
-        });
-        setTimeout(() => {
-          handleLanding(
-            { ...player, position: dest, money: player.money - cost },
-            BOARD_TILES[dest],
-            newPlayers,
-            ow,
-            bl
-          );
-        }, 400);
-        return;
-      }
-
       // 사회복지기금 접수처
       if (tile.type === 'welfare_pay') {
         const newPlayers = allPlayers.map((p) =>
@@ -434,23 +398,35 @@ export const useGameStore = create<GameStore>((set, get) => ({
         return;
       }
 
-      // 사회복지기금 수령처 (welfare_receive) - 현재 보드에는 없지만 대비
+      // 사회복지기금 수령처 (20번 칸)
       if (tile.type === 'welfare_receive') {
         const amount = store.welfareFund;
-        const newPlayers = allPlayers.map((p) =>
-          p.id === player.id ? { ...p, money: p.money + amount } : p
-        );
-        const newLogs = addLog(
-          store.logs,
-          `💰 ${player.name}: 기금 +${amount}만원`
-        );
-        set({
-          players: newPlayers,
-          welfareFund: 0,
-          logs: newLogs,
-          message: `💰 기금 +${amount}만원`,
-          phase: 'done',
-        });
+        if (amount > 0) {
+          const newPlayers = allPlayers.map((p) =>
+            p.id === player.id ? { ...p, money: p.money + amount } : p
+          );
+          const newLogs = addLog(
+            store.logs,
+            `💰 ${player.name}: 사회복지기금 +${amount}만원 수령!`
+          );
+          set({
+            players: newPlayers,
+            welfareFund: 0,
+            logs: newLogs,
+            message: `💰 사회복지기금 ${amount}만원 수령!`,
+            phase: 'done',
+          });
+        } else {
+          const newLogs = addLog(
+            store.logs,
+            `💰 ${player.name}: 기금이 비어있음`
+          );
+          set({
+            logs: newLogs,
+            message: '💰 사회복지기금이 비어있습니다',
+            phase: 'done',
+          });
+        }
         return;
       }
 

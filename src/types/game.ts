@@ -7,7 +7,6 @@ export type TileType =
   | 'transport'
   | 'golden_key'
   | 'deserted_island'
-  | 'space_travel'
   | 'welfare_pay'
   | 'welfare_receive'
   | 'world_tour';
