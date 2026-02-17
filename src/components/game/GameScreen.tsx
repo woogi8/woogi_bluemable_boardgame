@@ -12,7 +12,7 @@ import { useAutoPlay } from '@/hooks/useAutoPlay';
 
 // 화면 높이 기준으로 기본 셀 크기 계산
 function getDefaultCellSize() {
-  if (typeof window === 'undefined') return 72;
+  if (typeof window === 'undefined') return 80;
   // 보드 = 11셀 + gap/border ≈ 11*cellSize + 20
   // 상단 메시지 바 + 여백 ≈ 60px
   const available = window.innerHeight - 80;
@@ -28,7 +28,7 @@ export default function GameScreen() {
 
   useAutoPlay();
 
-  const [cellSize, setCellSize] = useState(72);
+  const [cellSize, setCellSize] = useState(80);
 
   // 초기 화면 크기에 맞게 기본값 설정
   useEffect(() => {

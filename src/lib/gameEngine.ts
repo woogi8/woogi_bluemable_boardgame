@@ -62,9 +62,14 @@ export function calculateRent(
   return tile.rent[Math.min(level, tile.rent.length - 1)];
 }
 
-// 건물 건설 비용 (땅 가격의 50%)
-export function getBuildCost(tileId: number): number {
-  return Math.floor(BOARD_TILES[tileId].price * 0.5);
+// 건물 건설 비용 (level: 0→별장, 1→빌딩, 2→호텔)
+export function getBuildCost(tileId: number, level?: number): number {
+  const tile = BOARD_TILES[tileId];
+  if (tile.buildCost) {
+    const idx = level !== undefined ? level : 0;
+    return tile.buildCost[Math.min(idx, tile.buildCost.length - 1)];
+  }
+  return Math.floor(tile.price * 0.5);
 }
 
 // 파산 처리

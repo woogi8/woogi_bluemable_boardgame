@@ -34,8 +34,10 @@ export default function GameLobby() {
     <div
       className="min-h-screen flex flex-col items-center justify-center p-4"
       style={{
-        background:
-          'linear-gradient(135deg, #1B5E20, #2E7D32 40%, #388E3C 70%, #66BB6A)',
+        backgroundImage: "url('/main_page.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         fontFamily: "'Noto Sans KR', 'Segoe UI', sans-serif",
       }}
     >
@@ -53,14 +55,14 @@ export default function GameLobby() {
         {/* 타이틀 */}
         <div
           className="font-semibold tracking-widest"
-          style={{ fontSize: 12, color: '#2E7D32', marginBottom: 4 }}
+          style={{ fontSize: 13, color: '#2E7D32', marginBottom: 4 }}
         >
           SINCE 1982
         </div>
         <h1
           className="font-black"
           style={{
-            fontSize: 34,
+            fontSize: 35,
             color: '#1B5E20',
             marginBottom: 2,
             letterSpacing: 4,
@@ -70,7 +72,7 @@ export default function GameLobby() {
         </h1>
         <p
           className="font-bold tracking-widest"
-          style={{ fontSize: 13, color: '#388E3C', marginBottom: 6 }}
+          style={{ fontSize: 14, color: '#388E3C', marginBottom: 6 }}
         >
           GAME
         </p>
@@ -78,7 +80,7 @@ export default function GameLobby() {
         {/* 설명 */}
         <p
           style={{
-            fontSize: 9,
+            fontSize: 10,
             color: '#78909C',
             marginBottom: 16,
             lineHeight: 1.7,
@@ -99,7 +101,7 @@ export default function GameLobby() {
         <div className="mb-5">
           <label
             className="font-bold block mb-2"
-            style={{ fontSize: 13, color: '#37474F' }}
+            style={{ fontSize: 14, color: '#37474F' }}
           >
             플레이어 수
           </label>
@@ -120,7 +122,7 @@ export default function GameLobby() {
                       ? '3px solid #1B5E20'
                       : '2px solid #E0E0E0',
                   background: playerCount === n ? '#E8F5E9' : '#fff',
-                  fontSize: 18,
+                  fontSize: 19,
                   color: playerCount === n ? '#1B5E20' : '#90A4AE',
                 }}
               >
@@ -149,7 +151,7 @@ export default function GameLobby() {
                   border: `2px solid ${PLAYER_COLORS[i]}`,
                 }}
               >
-                <span style={{ fontSize: 16 }}>{PLAYER_TOKENS[i]}</span>
+                <span style={{ fontSize: 17 }}>{PLAYER_TOKENS[i]}</span>
               </div>
               <input
                 type="text"
@@ -161,7 +163,7 @@ export default function GameLobby() {
                 style={{
                   height: 36,
                   padding: '0 12px',
-                  fontSize: 13,
+                  fontSize: 14,
                   color: PLAYER_COLORS[i],
                   border: `2px solid ${names[i] ? PLAYER_COLORS[i] : '#E0E0E0'}`,
                   background: names[i] ? `${PLAYER_COLORS[i]}08` : '#fff',
@@ -176,7 +178,7 @@ export default function GameLobby() {
               />
             </motion.div>
           ))}
-          <p style={{ fontSize: 9, color: '#B0BEC5', marginTop: 2 }}>
+          <p style={{ fontSize: 10, color: '#B0BEC5', marginTop: 2 }}>
             비워두면 P1, P2... 로 자동 설정
           </p>
         </div>
@@ -189,7 +191,7 @@ export default function GameLobby() {
           className="font-extrabold text-white border-none cursor-pointer tracking-widest"
           style={{
             padding: '12px 40px',
-            fontSize: 16,
+            fontSize: 17,
             background: 'linear-gradient(135deg, #1B5E20, #4CAF50)',
             borderRadius: 10,
             letterSpacing: 2,
@@ -205,7 +207,7 @@ export default function GameLobby() {
           style={{
             display: 'inline-block',
             marginTop: 12,
-            fontSize: 12,
+            fontSize: 13,
             fontWeight: 600,
             color: '#66BB6A',
             textDecoration: 'none',

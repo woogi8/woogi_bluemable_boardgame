@@ -24,6 +24,8 @@ export interface Tile {
   group: number;        // 색상 그룹 (-1: 특수칸)
   icon: string;
   color: string;
+  flag?: string;        // 국기 이모지
+  buildCost?: number[]; // [별장, 빌딩, 호텔] 건설비용 (없으면 땅값의 50%)
   korean?: boolean;     // 한국 도시 특수 표시
 }
 
@@ -121,7 +123,15 @@ export interface LogEntry {
 
 // 플레이어 색상
 export const PLAYER_COLORS = ['#E53935', '#1E88E5', '#43A047', '#FB8C00'] as const;
-export const PLAYER_TOKENS = ['🔴', '🔵', '🟢', '🟠'] as const;
+export const VEHICLE_POOL = ['✈️', '🚗', '🚲', '🏍️'] as const;
+export let PLAYER_TOKENS = ['✈️', '🚗', '🚲', '🏍️'];
+
+// 랜덤 셔플 (겹치지 않게 배정)
+export function shuffleTokens() {
+  const shuffled = [...VEHICLE_POOL].sort(() => Math.random() - 0.5);
+  PLAYER_TOKENS = shuffled;
+  return shuffled;
+}
 
 // 게임 상수
 export const BOARD_SIZE = 40;

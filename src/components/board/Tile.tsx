@@ -16,6 +16,7 @@ export default function Tile({ tile, cellSize }: TileProps) {
   const players = useGameStore((s) => s.players);
   const ownership = useGameStore((s) => s.ownership);
   const buildings = useGameStore((s) => s.buildings);
+  const welfareFund = useGameStore((s) => s.welfareFund);
 
   const owner = ownership[tile.id];
   const buildLevel = buildings[tile.id] || 0;
@@ -30,7 +31,7 @@ export default function Tile({ tile, cellSize }: TileProps) {
   const nameSize = isCorner ? 8 * scale : 7 * scale;
   const priceSize = 6 * scale;
   const buildSize = 7 * scale;
-  const tokenSize = 9 * scale;
+  const tokenSize = 13 * scale;
   const ownerBarHeight = Math.max(2, 3 * scale);
   const truncLen = cellSize >= 70 ? 6 : cellSize >= 60 ? 5 : 4;
 
@@ -98,12 +99,22 @@ export default function Tile({ tile, cellSize }: TileProps) {
         </div>
       )}
 
-      {tile.korean && (
+      {tile.flag && (
         <div
           className="absolute top-0 right-0.5"
-          style={{ fontSize: 5 * scale, color: '#D32F2F' }}
+          style={{ fontSize: 6 * scale, lineHeight: 1 }}
         >
-          ★
+          {tile.flag}
+        </div>
+      )}
+
+      {(tile.type === 'welfare_pay' || tile.type === 'welfare_receive') && welfareFund > 0 && (
+        <div
+          className="absolute top-0 left-0.5"
+          style={{ fontSize: 7 * scale, lineHeight: 1 }}
+          title={`기금: ${welfareFund}만원`}
+        >
+          💵
         </div>
       )}
     </div>

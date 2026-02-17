@@ -15,6 +15,7 @@ import {
   WELFARE_PAYMENT,
   MAX_ISLAND_TURNS,
   TRANSPORT_IDS,
+  shuffleTokens,
 } from '@/types/game';
 import { BOARD_TILES } from '@/lib/boardData';
 import { GOLDEN_KEY_CARDS } from '@/lib/goldenKeyData';
@@ -35,6 +36,27 @@ function shuffle<T>(arr: T[]): T[] {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+
+// 플레이어별 게임 통계
+export interface PlayerStats {
+  propertiesBought: number;      // 구매한 나라 수
+  totalPurchaseCost: number;     // 총 구매비용
+  rentCollected: number;         // 받은 통행료
+  rentPaid: number;              // 낸 통행료
+  buildingSpent: number;         // 건설비용
+  goldenKeyEvents: string[];     // 황금열쇠 이벤트 목록
+}
+
+function emptyStats(): PlayerStats {
+  return {
+    propertiesBought: 0,
+    totalPurchaseCost: 0,
+    rentCollected: 0,
+    rentPaid: 0,
+    buildingSpent: 0,
+    goldenKeyEvents: [],
+  };
 }
 
 interface GameStore {
@@ -66,6 +88,9 @@ interface GameStore {
 
   // 로그
   logs: LogEntry[];
+
+  // 통계
+  stats: Record<number, PlayerStats>;
 
   // 자동 진행
   autoPlay: boolean;
@@ -107,12 +132,15 @@ export const useGameStore = create<GameStore>((set, get) => ({
   welfareFund: 0,
   deck: [],
   logs: [],
+  stats: {},
   autoPlay: false,
 
   setPlayerCount: (count) => set({ playerCount: count }),
 
   startGame: (names: string[]) => {
     const { playerCount } = get();
+    // 탈것 랜덤 배정
+    shuffleTokens();
     // 턴 순서를 랜덤으로 섞기
     const orderIndices = shuffle(Array.from({ length: playerCount }, (_, i) => i));
     const players: Player[] = orderIndices.map((origIdx, newIdx) => ({
@@ -142,6 +170,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       buildings: {},
       welfareFund: 0,
       deck: shuffle(GOLDEN_KEY_CARDS),
+      stats: Object.fromEntries(players.map((p) => [p.id, emptyStats()])),
       logs: [
         { message: '🎮 부루마블 시작! (원판 40칸)', timestamp: Date.now() },
         { message: `🎲 턴 순서: ${orderMsg}`, timestamp: Date.now() },
@@ -389,14 +418,20 @@ export const useGameStore = create<GameStore>((set, get) => ({
         return;
       }
 
-      // 우주여행 (30번) - 랜덤 위치로 이동
+      // 우주여행 (30번) - 안 팔린 땅 중 랜덤 이동
       if (tile.type === 'space_travel') {
         const columbiaOwner = ow[32];
         let cost = 0;
         if (columbiaOwner !== undefined && columbiaOwner !== player.id) {
           cost = BOARD_TILES[32].rent[0];
         }
-        const dest = Math.floor(Math.random() * BOARD_SIZE);
+        // 안 팔린 도시/이동수단 타일 목록
+        const unownedTiles = BOARD_TILES.filter(
+          (t) => (t.type === 'city' || t.type === 'transport') && ow[t.id] === undefined
+        );
+        const dest = unownedTiles.length > 0
+          ? unownedTiles[Math.floor(Math.random() * unownedTiles.length)].id
+          : Math.floor(Math.random() * BOARD_SIZE);
         const newPlayers = allPlayers.map((p) => {
           if (p.id === player.id)
             return { ...p, position: dest, money: p.money - cost };
@@ -476,13 +511,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
         // 본인 소유 → 건설
         if (ownerId === player.id) {
-          if (tile.type === 'transport' || tile.id === 39) {
+          if (tile.type === 'transport' || tile.id === 39 || tile.id === 5 || tile.id === 25) {
             set({ message: `${tile.name}: 건설 불가`, phase: 'done' });
             return;
           }
           const currentLevel = bl[tile.id] || 0;
           if (currentLevel < 3) {
-            const cost = getBuildCost(tile.id);
+            const cost = getBuildCost(tile.id, currentLevel);
             if (player.money >= cost) {
               set({
                 modal: {
@@ -567,7 +602,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   },
 
   buyProperty: (tileId) => {
-    const { players, currentPlayerIndex, ownership, logs } = get();
+    const { players, currentPlayerIndex, ownership, logs, stats } = get();
     const player = players[currentPlayerIndex];
     const tile = BOARD_TILES[tileId];
 
@@ -579,10 +614,15 @@ export const useGameStore = create<GameStore>((set, get) => ({
       `🏢 ${player.name}: ${tile.name} (-${tile.price})`
     );
 
+    const ps = { ...stats[player.id] };
+    ps.propertiesBought += 1;
+    ps.totalPurchaseCost += tile.price;
+
     set({
       players: newPlayers,
       ownership: { ...ownership, [tileId]: player.id },
       logs: newLogs,
+      stats: { ...stats, [player.id]: ps },
       modal: null,
       phase: 'done',
     });
@@ -593,10 +633,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
   },
 
   buildOnProperty: (tileId) => {
-    const { players, currentPlayerIndex, buildings, logs } = get();
+    const { players, currentPlayerIndex, buildings, logs, stats } = get();
     const player = players[currentPlayerIndex];
-    const cost = getBuildCost(tileId);
     const currentLevel = buildings[tileId] || 0;
+    const cost = getBuildCost(tileId, currentLevel);
     const newLevel = currentLevel + 1;
     const levelName = newLevel >= 3 ? '호텔' : newLevel === 2 ? '빌딩' : '별장';
 
@@ -608,10 +648,14 @@ export const useGameStore = create<GameStore>((set, get) => ({
       `🏗️ ${player.name}: ${BOARD_TILES[tileId].name} ${levelName} (-${cost})`
     );
 
+    const ps = { ...stats[player.id] };
+    ps.buildingSpent += cost;
+
     set({
       players: newPlayers,
       buildings: { ...buildings, [tileId]: newLevel },
       logs: newLogs,
+      stats: { ...stats, [player.id]: ps },
       modal: null,
       phase: 'done',
     });
@@ -629,6 +673,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       buildings,
       welfareFund,
       logs,
+      stats,
     } = get();
 
     const result = executeGoldenKeyCard(
@@ -642,12 +687,16 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
     const newLogs = addLog(logs, result.message);
 
+    const ps = { ...stats[currentPlayerIndex] };
+    ps.goldenKeyEvents = [...ps.goldenKeyEvents, `${card.icon} ${card.text}`];
+
     set({
       players: result.players,
       ownership: result.ownership,
       buildings: result.buildings,
       welfareFund: result.welfareFund,
       logs: newLogs,
+      stats: { ...stats, [currentPlayerIndex]: ps },
       modal: null,
     });
 
@@ -693,12 +742,19 @@ export const useGameStore = create<GameStore>((set, get) => ({
   },
 
   payRent: () => {
-    const { players, currentPlayerIndex, ownership, buildings, logs, modal } =
+    const { players, currentPlayerIndex, ownership, buildings, logs, modal, stats } =
       get();
     if (!modal || (modal.type !== 'pass' && modal.type !== 'rent')) return;
 
     const player = players[currentPlayerIndex];
     const { ownerId, rent } = modal;
+
+    // 통계 업데이트: 낸 사람 / 받은 사람
+    const payerStats = { ...stats[player.id] };
+    payerStats.rentPaid += rent;
+    const ownerStats = { ...stats[ownerId] };
+    ownerStats.rentCollected += rent;
+    const newStats = { ...stats, [player.id]: payerStats, [ownerId]: ownerStats };
 
     const newPlayers = players.map((p) => {
       if (p.id === player.id) return { ...p, money: p.money - rent };
@@ -718,6 +774,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
         players: result.players,
         ownership: result.ownership,
         logs: newLogs,
+        stats: newStats,
         modal: null,
         message: '💸 파산!',
         phase: 'done',
@@ -740,6 +797,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       set({
         players: newPlayers,
         logs: newLogs,
+        stats: newStats,
         modal: null,
         phase: 'done',
       });
@@ -766,6 +824,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       welfareFund: 0,
       deck: [],
       logs: [],
+      stats: {},
       autoPlay: false,
     });
   },
