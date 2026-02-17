@@ -52,7 +52,7 @@ export const BOARD_TILES: Tile[] = [
   { id: 36, name: '런던', type: 'city', price: 35, rent: [18, 90, 270, 810], group: 7, icon: '🇬🇧', color: '#80DEEA' },
   { id: 37, name: '뉴욕', type: 'city', price: 35, rent: [18, 90, 270, 810], group: 7, icon: '🇺🇸', color: '#80DEEA' },
   { id: 38, name: '사회복지기금', type: 'welfare_pay', price: 0, rent: [0], group: -1, icon: '💰', color: '#FFF9C4' },
-  { id: 39, name: '서울', type: 'city', price: 50, rent: [200], group: 8, icon: '🇰🇷', color: '#EF5350', korean: true },
+  { id: 39, name: '서울', type: 'city', price: 100, rent: [200], group: 8, icon: '🇰🇷', color: '#EF5350', korean: true },
 ];
 
 // 칸 ID → 보드 위치 매핑 (11x11 그리드)

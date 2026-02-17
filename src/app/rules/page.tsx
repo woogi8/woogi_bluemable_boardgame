@@ -146,7 +146,7 @@ export default function RulesPage() {
 
           <H3>3.4 서울 특별 규칙</H3>
           <Callout emoji="🇰🇷">
-            서울은 가장 비싼 땅(50만원)으로, <b>건물 건설이 불가</b>합니다.<br />
+            서울은 가장 비싼 땅(100만원)으로, <b>건물 건설이 불가</b>합니다.<br />
             구입 즉시 통행료 <b>200만원</b>을 받을 수 있습니다.
           </Callout>
         </Section>
