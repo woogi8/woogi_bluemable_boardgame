@@ -104,6 +104,7 @@ export type ModalType =
   | { type: 'build'; tileId: number; cost: number; currentLevel: number }
   | { type: 'chance'; card: GoldenKeyCard }
   | { type: 'pass'; tileId: number; ownerId: number; rent: number }
+  | { type: 'rent'; tileId: number; ownerId: number; rent: number }
   | null;
 
 // 소유권 맵 (tileId -> playerId)

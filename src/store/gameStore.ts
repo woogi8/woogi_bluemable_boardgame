@@ -509,45 +509,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
           return;
         }
 
-        // 통행료 지불
-        const newPlayers = allPlayers.map((p) => {
-          if (p.id === player.id)
-            return { ...p, money: p.money - rent };
-          if (p.id === ownerId)
-            return { ...p, money: p.money + rent };
-          return p;
+        // 통행료 모달 표시
+        set({
+          modal: { type: 'rent', tileId: tile.id, ownerId, rent },
+          phase: 'action',
         });
-
-        if (newPlayers[player.id].money < 0) {
-          // 파산 처리 - 통행료 중 지불 가능한 만큼만 전달
-          const payable = allPlayers[player.id].money;
-          const bankruptPlayers = allPlayers.map((p) => {
-            if (p.id === ownerId)
-              return { ...p, money: p.money + payable };
-            return p;
-          });
-          const result = processBankruptcy(player.id, bankruptPlayers, ow);
-          const newLogs = addLog(store.logs, `💀 ${player.name} 파산!`);
-          set({
-            players: result.players,
-            ownership: result.ownership,
-            logs: newLogs,
-            message: '💸 파산!',
-            phase: 'done',
-          });
-          checkAndHandleGameOver(result.players);
-        } else {
-          const newLogs = addLog(
-            store.logs,
-            `💸 ${player.name}→${allPlayers[ownerId].name}: ${rent}만원`
-          );
-          set({
-            players: newPlayers,
-            logs: newLogs,
-            message: `💸 ${player.name}→${allPlayers[ownerId].name}: ${rent}만원`,
-            phase: 'done',
-          });
-        }
         return;
       }
 
@@ -724,7 +690,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   payRent: () => {
     const { players, currentPlayerIndex, ownership, buildings, logs, modal } =
       get();
-    if (!modal || modal.type !== 'pass') return;
+    if (!modal || (modal.type !== 'pass' && modal.type !== 'rent')) return;
 
     const player = players[currentPlayerIndex];
     const { ownerId, rent } = modal;

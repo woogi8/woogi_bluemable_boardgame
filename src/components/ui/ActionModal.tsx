@@ -131,6 +131,34 @@ export default function ActionModal({ scale = 1 }: ActionModalProps) {
           </div>
         )}
 
+        {modal.type === 'rent' && (
+          <div
+            className="bg-white rounded-md mx-auto"
+            style={{
+              padding: fs(8),
+              maxWidth: fs(200),
+              boxShadow: '0 3px 10px rgba(0,0,0,0.15)',
+            }}
+          >
+            <div className="font-bold" style={{ fontSize: fs(10), marginBottom: fs(3) }}>
+              💸 통행료 납부
+            </div>
+            <div style={{ fontSize: fs(9), color: '#666', marginBottom: fs(2) }}>
+              {BOARD_TILES[modal.tileId].icon} {BOARD_TILES[modal.tileId].name} ({players[modal.ownerId].name} 소유)
+            </div>
+            <div className="font-bold" style={{ fontSize: fs(12), color: '#E53935', marginBottom: fs(5), textAlign: 'center' }}>
+              {modal.rent}만원
+            </div>
+            <button
+              onClick={payRent}
+              className="w-full font-semibold text-white border-none rounded cursor-pointer"
+              style={btnStyle('#F44336')}
+            >
+              지불
+            </button>
+          </div>
+        )}
+
         {modal.type === 'pass' && (
           <div
             className="bg-white rounded-md mx-auto"
