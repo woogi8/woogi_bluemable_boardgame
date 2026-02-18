@@ -38,6 +38,7 @@ export default function GameLobby() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        backgroundColor: '#1B5E20',
         fontFamily: "'Noto Sans KR', 'Segoe UI', sans-serif",
       }}
     >
