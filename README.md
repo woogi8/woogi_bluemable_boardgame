@@ -20,6 +20,7 @@
 - **부동산 현황 패널** - 10개 구역별 소유 상태 실시간 표시
 - **보드 크기 조절** - 슬라이더로 40~110px 범위 동적 조절
 - **게임 설명서** - 상세 규칙 HTML 페이지 (`/rules`)
+- **PWA 지원** - 앱 설치, 오프라인 플레이, 서비스 워커 캐싱
 
 ## 기술 스택
 
@@ -37,7 +38,8 @@
 ```
 src/
 ├── app/                          # Next.js App Router
-│   ├── layout.tsx                # 루트 레이아웃 (폰트, 메타데이터)
+│   ├── layout.tsx                # 루트 레이아웃 (viewport, PWA 메타, SW 등록)
+│   ├── manifest.ts               # PWA 웹앱 매니페스트 (Next.js 빌트인)
 │   ├── page.tsx                  # 메인 페이지 (로비 ↔ 게임 화면 전환)
 │   ├── globals.css               # 글로벌 스타일
 │   └── rules/
@@ -59,6 +61,8 @@ src/
 │   └── gameStore.ts              # Zustand 중앙 상태 관리 (게임 전체 상태 + 액션)
 │
 └── components/
+    ├── ServiceWorkerRegister.tsx # PWA 서비스 워커 등록
+    │
     ├── board/                    # 보드 렌더링
     │   ├── Board.tsx             # 11x11 그리드 보드 컨테이너
     │   ├── Tile.tsx              # 개별 타일 (소유자, 건물, 토큰 표시)
@@ -76,6 +80,13 @@ src/
         ├── PlayerPanel.tsx       # 플레이어 정보 패널
         ├── GameLog.tsx           # 게임 로그 (자동 스크롤)
         └── PropertyMap.tsx       # 부동산 현황 (구역별 소유 상태)
+
+public/
+├── sw.js                         # 서비스 워커 (오프라인 캐싱)
+├── icon-192x192.png              # PWA 아이콘 (192px)
+├── icon-512x512.png              # PWA 아이콘 (512px)
+├── icon-maskable-512x512.png     # PWA 마스크 가능 아이콘
+└── main_page.png                 # 메인 배경 이미지
 ```
 
 ## 아키텍처
@@ -121,6 +132,15 @@ npm start
 ```
 
 브라우저에서 [http://localhost:3000](http://localhost:3000) 접속
+
+### PWA 설치
+
+프로덕션 빌드(`npm run build && npm start`) 후 브라우저 주소창의 설치 아이콘을 클릭하면 앱으로 설치할 수 있습니다.
+설치 후에는 오프라인에서도 플레이가 가능합니다.
+
+- **Chrome**: 주소창 우측 설치 아이콘 클릭
+- **Safari (iOS)**: 공유 → 홈 화면에 추가
+- **Edge**: 주소창 우측 앱 설치 아이콘 클릭
 
 ## 게임 플레이
 
