@@ -1,0 +1,345 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Whale/4.35.351.16 Safari/537.36" version="29.5.1">
+  <diagram name="프로젝트 아키텍처" id="h3poabkwvSMZ8QjgmrTM">
+    <mxGraphModel dx="742" dy="1918" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RBonZI3s3akOjgRY_8KN-1" parent="1" style="text;html=1;fontSize=24;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#1B5E20;" value="부루마블 온라인 보드게임 - 시스템 아키텍처" vertex="1">
+          <mxGeometry height="50" width="600" x="300" y="-20" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="기술 스택 (Technology Stack)" vertex="1">
+          <mxGeometry height="80" width="1180" x="10" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;fontStyle=1;fontSize=11;" value="Next.js 16.1&#xa;(App Router)" vertex="1">
+          <mxGeometry height="40" width="110" x="30" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;fontStyle=1;fontSize=11;" value="React 19.2" vertex="1">
+          <mxGeometry height="40" width="100" x="155" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;fontStyle=1;fontSize=11;" value="TypeScript 5" vertex="1">
+          <mxGeometry height="40" width="100" x="270" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;fontStyle=1;fontSize=11;" value="Zustand 5&#xa;(상태관리)" vertex="1">
+          <mxGeometry height="40" width="110" x="385" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;fontStyle=1;fontSize=11;" value="Tailwind CSS 4" vertex="1">
+          <mxGeometry height="40" width="110" x="510" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;fontStyle=1;fontSize=11;" value="Framer Motion&#xa;12.34" vertex="1">
+          <mxGeometry height="40" width="110" x="635" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;fontStyle=1;fontSize=11;" value="PWA&#xa;(Service Worker)" vertex="1">
+          <mxGeometry height="40" width="120" x="760" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;fontStyle=1;fontSize=11;" value="Turbopack&#xa;(빌드도구)" vertex="1">
+          <mxGeometry height="40" width="110" x="895" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;fontStyle=1;fontSize=11;" value="ESLint&#xa;(Linting)" vertex="1">
+          <mxGeometry height="40" width="100" x="1020" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="App Router (라우팅)" vertex="1">
+          <mxGeometry height="90" width="580" x="10" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=10;" value="layout.tsx&#xa;(루트 레이아웃)&#xa;PWA 설정, 뷰포트" vertex="1">
+          <mxGeometry height="50" width="130" x="30" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=10;" value="page.tsx (/)&#xa;메인 화면&#xa;Lobby ↔ Game 전환" vertex="1">
+          <mxGeometry height="50" width="130" x="175" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=10;" value="rules/page.tsx&#xa;게임 규칙 페이지&#xa;(453줄)" vertex="1">
+          <mxGeometry height="50" width="120" x="320" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=10;" value="manifest.ts&#xa;PWA 매니페스트" vertex="1">
+          <mxGeometry height="50" width="120" x="455" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="화면 흐름 (Screen Flow)" vertex="1">
+          <mxGeometry height="90" width="580" x="610" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=10;" value="🎮 GameLobby&#xa;플레이어 설정&#xa;(2~4명)" vertex="1">
+          <mxGeometry height="50" width="130" x="640" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=10;" value="🎲 GameScreen&#xa;메인 게임 화면&#xa;(3단 레이아웃)" vertex="1">
+          <mxGeometry height="50" width="140" x="810" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=10;" value="🏆 GameResult&#xa;게임 결과&#xa;순위 &amp; 통계" vertex="1">
+          <mxGeometry height="50" width="130" x="990" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-21" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E65100;strokeWidth=2;" target="RBonZI3s3akOjgRY_8KN-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-22" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-19" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E65100;strokeWidth=2;" target="RBonZI3s3akOjgRY_8KN-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="컴포넌트 계층 (Component Hierarchy)" vertex="1">
+          <mxGeometry height="220" width="1180" x="10" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-24" parent="1" style="text;html=1;fontSize=12;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#6A1B9A;" value="board/" vertex="1">
+          <mxGeometry height="20" width="80" x="30" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=10;" value="Board.tsx&#xa;11×11 CSS Grid&#xa;보드판 렌더링" vertex="1">
+          <mxGeometry height="55" width="130" x="30" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontSize=10;" value="Tile.tsx&#xa;40개 타일 표시&#xa;소유권/건물/토큰" vertex="1">
+          <mxGeometry height="55" width="130" x="30" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontSize=10;" value="BoardCenter.tsx&#xa;주사위 &amp; 모달&#xa;보드 중앙 영역" vertex="1">
+          <mxGeometry height="30" width="130" x="30" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-28" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-25" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6A1B9A;" target="RBonZI3s3akOjgRY_8KN-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-29" parent="1" style="text;html=1;fontSize=12;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#6A1B9A;" value="game/" vertex="1">
+          <mxGeometry height="20" width="80" x="200" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=10;" value="GameLobby.tsx&#xa;플레이어 수 선택&#xa;이름 입력 폼" vertex="1">
+          <mxGeometry height="55" width="130" x="200" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=10;" value="GameScreen.tsx&#xa;3단 레이아웃&#xa;좌: 플레이어 / 중: 보드 / 우: 정보" vertex="1">
+          <mxGeometry height="55" width="170" x="200" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=10;" value="GameResult.tsx&#xa;순위표 &amp; 통계" vertex="1">
+          <mxGeometry height="30" width="130" x="200" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-33" parent="1" style="text;html=1;fontSize=12;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#6A1B9A;" value="ui/" vertex="1">
+          <mxGeometry height="20" width="80" x="420" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontSize=10;" value="DiceRoller.tsx&#xa;3D 주사위 애니메이션" vertex="1">
+          <mxGeometry height="35" width="150" x="420" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontSize=10;" value="ActionModal.tsx&#xa;구매/건설/통행료/찬스 모달" vertex="1">
+          <mxGeometry height="35" width="170" x="420" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontSize=10;" value="PlayerPanel.tsx&#xa;플레이어 정보 패널" vertex="1">
+          <mxGeometry height="35" width="150" x="420" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontSize=10;" value="GameLog.tsx&#xa;게임 이벤트 로그" vertex="1">
+          <mxGeometry height="35" width="140" x="600" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontSize=10;" value="PropertyMap.tsx&#xa;부동산 현황 지도" vertex="1">
+          <mxGeometry height="35" width="140" x="600" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontSize=10;" value="GoldenKeyCard.tsx&#xa;황금열쇠 카드 표시" vertex="1">
+          <mxGeometry height="35" width="150" x="600" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-40" parent="1" style="text;html=1;fontSize=12;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#6A1B9A;" value="hooks/" vertex="1">
+          <mxGeometry height="20" width="80" x="800" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=10;" value="useAutoPlay.ts&#xa;자동 플레이 AI 로직&#xa;400ms 폴링 기반" vertex="1">
+          <mxGeometry height="55" width="150" x="800" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-42" parent="1" style="text;html=1;fontSize=12;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#6A1B9A;" value="PWA" vertex="1">
+          <mxGeometry height="20" width="80" x="1000" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=10;" value="ServiceWorkerRegister.tsx&#xa;SW 등록 컴포넌트" vertex="1">
+          <mxGeometry height="35" width="170" x="1000" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-44" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontSize=10;" value="sw.js (public/)&#xa;캐시 전략&#xa;오프라인 지원" vertex="1">
+          <mxGeometry height="45" width="170" x="1000" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-45" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#C62828;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="상태 관리 (State Management) - Zustand Store" vertex="1">
+          <mxGeometry height="160" width="1180" x="10" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#C62828;fontStyle=1;fontSize=12;" value="gameStore.ts (832줄)&#xa;중앙 상태 저장소" vertex="1">
+          <mxGeometry height="40" width="160" x="30" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="players[]&#xa;플레이어 배열&#xa;(이름, 돈, 위치, 특수카드)" vertex="1">
+          <mxGeometry height="50" width="150" x="220" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-48" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="phase&#xa;roll → moving →&#xa;action → done" vertex="1">
+          <mxGeometry height="50" width="120" x="385" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-49" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="ownership{}&#xa;buildings{}&#xa;타일별 소유/건물" vertex="1">
+          <mxGeometry height="50" width="130" x="520" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="modal&#xa;{ type, tileId }&#xa;현재 열린 모달" vertex="1">
+          <mxGeometry height="50" width="120" x="665" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-51" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="dice[]&#xa;doubleCount&#xa;주사위 결과" vertex="1">
+          <mxGeometry height="50" width="110" x="800" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-52" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="logs[] / stats{}&#xa;welfareFund&#xa;autoPlay" vertex="1">
+          <mxGeometry height="50" width="120" x="925" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-53" parent="1" style="text;html=1;fontSize=11;fontStyle=1;fillColor=none;strokeColor=none;fontColor=#C62828;" value="Actions (25+ 메서드)" vertex="1">
+          <mxGeometry height="20" width="180" x="30" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-54" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="startGame()" vertex="1">
+          <mxGeometry height="25" width="100" x="30" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-55" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="rollDiceAction()" vertex="1">
+          <mxGeometry height="25" width="110" x="140" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-56" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="buyProperty()" vertex="1">
+          <mxGeometry height="25" width="100" x="260" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-57" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="buildOnProperty()" vertex="1">
+          <mxGeometry height="25" width="120" x="370" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="payRent()" vertex="1">
+          <mxGeometry height="25" width="90" x="500" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="executeCard()" vertex="1">
+          <mxGeometry height="25" width="100" x="600" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="endTurn()" vertex="1">
+          <mxGeometry height="25" width="90" x="710" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-61" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="useFreePass()" vertex="1">
+          <mxGeometry height="25" width="100" x="810" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-62" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=9;" value="toggleAutoPlay()" vertex="1">
+          <mxGeometry height="25" width="120" x="920" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-63" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#283593;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="게임 엔진 (Game Engine) - 순수 로직" vertex="1">
+          <mxGeometry height="100" width="780" x="10" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-64" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9FA8DA;strokeColor=#283593;fontStyle=1;fontSize=11;" value="gameEngine.ts&#xa;(500+ 줄)" vertex="1">
+          <mxGeometry height="40" width="120" x="30" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-65" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C5CAE9;strokeColor=#283593;fontSize=9;" value="calculateRent()&#xa;통행료 계산&#xa;(교통/도시/특수)" vertex="1">
+          <mxGeometry height="50" width="130" x="170" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-66" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C5CAE9;strokeColor=#283593;fontSize=9;" value="processBankruptcy()&#xa;파산 처리&#xa;소유권 반환" vertex="1">
+          <mxGeometry height="50" width="130" x="315" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-67" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C5CAE9;strokeColor=#283593;fontSize=9;" value="executeGoldenKeyCard()&#xa;황금열쇠 실행&#xa;14가지 액션" vertex="1">
+          <mxGeometry height="50" width="150" x="460" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-68" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C5CAE9;strokeColor=#283593;fontSize=9;" value="getNextPlayer()&#xa;checkGameOver()&#xa;getBuildCost()" vertex="1">
+          <mxGeometry height="50" width="140" x="625" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="정적 데이터 (Static Data)" vertex="1">
+          <mxGeometry height="100" width="380" x="810" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-70" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF59D;strokeColor=#F57F17;fontSize=10;" value="boardData.ts&#xa;BOARD_TILES[40]&#xa;getTileGridPosition()" vertex="1">
+          <mxGeometry height="55" width="160" x="830" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-71" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF59D;strokeColor=#F57F17;fontSize=10;" value="goldenKeyData.ts&#xa;GOLDEN_KEY_CARDS[30]&#xa;14가지 액션 타입" vertex="1">
+          <mxGeometry height="55" width="160" x="1005" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-72" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2F1;strokeColor=#00695C;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="타입 정의 (Type Definitions) - game.ts (143줄)" vertex="1">
+          <mxGeometry height="80" width="1180" x="10" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-73" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=10;" value="TileType&#xa;(12종)" vertex="1">
+          <mxGeometry height="40" width="80" x="30" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-74" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=10;" value="Tile&#xa;(보드칸)" vertex="1">
+          <mxGeometry height="40" width="80" x="125" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-75" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=10;" value="Player&#xa;(플레이어)" vertex="1">
+          <mxGeometry height="40" width="90" x="220" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-76" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=10;" value="BuildingState&#xa;(건물상태)" vertex="1">
+          <mxGeometry height="40" width="100" x="325" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-77" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=10;" value="DiceResult&#xa;(주사위)" vertex="1">
+          <mxGeometry height="40" width="90" x="440" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-78" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=10;" value="GoldenKeyCard&#xa;(황금열쇠)" vertex="1">
+          <mxGeometry height="40" width="110" x="545" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=10;" value="CardAction&#xa;(14가지)" vertex="1">
+          <mxGeometry height="40" width="90" x="670" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-80" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=10;" value="GamePhase&#xa;(4단계)" vertex="1">
+          <mxGeometry height="40" width="90" x="775" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-81" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=10;" value="GameScreen&#xa;(3화면)" vertex="1">
+          <mxGeometry height="40" width="90" x="880" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-82" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=10;" value="PLAYER_COLORS&#xa;PLAYER_TOKENS" vertex="1">
+          <mxGeometry height="40" width="120" x="985" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-83" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#C62828;strokeWidth=2;dashed=1;fontSize=10;" target="RBonZI3s3akOjgRY_8KN-45" value="dispatch actions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-84" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-45" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#283593;strokeWidth=2;dashed=1;fontSize=10;" target="RBonZI3s3akOjgRY_8KN-63" value="compute">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-85" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-63" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#F57F17;strokeWidth=2;dashed=1;fontSize=10;" target="RBonZI3s3akOjgRY_8KN-69" value="참조">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-86" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#880E4F;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="게임 턴 흐름 (Turn Flow State Machine)" vertex="1">
+          <mxGeometry height="130" width="1180" x="10" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-87" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F48FB1;strokeColor=#880E4F;fontSize=10;fontStyle=1;" value="🎲 Roll Phase&#xa;주사위 굴리기&#xa;더블 체크" vertex="1">
+          <mxGeometry height="55" width="130" x="40" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-88" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F48FB1;strokeColor=#880E4F;fontSize=10;fontStyle=1;" value="🚶 Moving Phase&#xa;말 이동&#xa;월급 체크" vertex="1">
+          <mxGeometry height="55" width="130" x="250" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-89" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F48FB1;strokeColor=#880E4F;fontSize=10;fontStyle=1;" value="⚡ Action Phase&#xa;구매/건설/통행료&#xa;황금열쇠/특수칸" vertex="1">
+          <mxGeometry height="55" width="150" x="460" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-90" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F48FB1;strokeColor=#880E4F;fontSize=10;fontStyle=1;" value="✅ Done Phase&#xa;턴 종료&#xa;다음 플레이어" vertex="1">
+          <mxGeometry height="55" width="130" x="690" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-91" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#880E4F;fontSize=9;fontStyle=2;" value="🔄 더블 시&#xa;다시 Roll" vertex="1">
+          <mxGeometry height="35" width="100" x="870" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-92" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#880E4F;fontSize=9;fontStyle=2;" value="🏆 게임 종료&#xa;1명 생존 시" vertex="1">
+          <mxGeometry height="35" width="100" x="870" y="1035" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-93" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#880E4F;fontSize=9;fontStyle=2;" value="🏝️ 무인도&#xa;3턴 대기" vertex="1">
+          <mxGeometry height="35" width="100" x="1020" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-94" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-87" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#880E4F;strokeWidth=2;" target="RBonZI3s3akOjgRY_8KN-88">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-95" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-88" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#880E4F;strokeWidth=2;" target="RBonZI3s3akOjgRY_8KN-89">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-96" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-89" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#880E4F;strokeWidth=2;" target="RBonZI3s3akOjgRY_8KN-90">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-97" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-90" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#880E4F;strokeWidth=2;" target="RBonZI3s3akOjgRY_8KN-91">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-98" edge="1" parent="1" source="RBonZI3s3akOjgRY_8KN-91" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#880E4F;strokeWidth=1;dashed=1;" target="RBonZI3s3akOjgRY_8KN-87">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="920" y="970" />
+              <mxPoint x="105" y="970" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-99" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="보드 레이아웃 (11×11 Grid - 40칸)" vertex="1">
+          <mxGeometry height="250" width="600" x="10" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-100" parent="1" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;fontColor=#2E7D32;spacingLeft=10;" value="하단: 출발(0) → 타이베이(1) → ... → 무인도(10)&#xa;좌측: 하와이(11) → ... → 싱가포르(19) (하→상)&#xa;상단좌: 사회복지기금(20) → ... → 우주여행(30)&#xa;우측: 도쿄(31) → ... → 부산(39) (상→하)&#xa;&#xa;모서리: 출발(0), 무인도(10), 사회복지(20), 우주여행(30)&#xa;&#xa;특수칸: 황금열쇠(4곳), 교통수단(3곳)&#xa;한국 도시: 서울(36), 부산(39), 제주도(24)" vertex="1">
+          <mxGeometry height="200" width="550" x="30" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-101" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBE9E7;strokeColor=#BF360C;fontStyle=1;fontSize=14;verticalAlign=top;align=center;spacingTop=5;" value="특수 게임 메커니즘" vertex="1">
+          <mxGeometry height="250" width="560" x="630" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-102" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#BF360C;fontSize=9;" value="🎲 더블 시스템&#xa;같은 눈 = 추가턴&#xa;3연속 = 무인도행" vertex="1">
+          <mxGeometry height="55" width="120" x="650" y="1155" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-103" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#BF360C;fontSize=9;" value="🏝️ 무인도&#xa;3턴 대기&#xa;더블/탈출카드 탈출" vertex="1">
+          <mxGeometry height="55" width="120" x="790" y="1155" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-104" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#BF360C;fontSize=9;" value="💰 월급&#xa;출발점 통과 시&#xa;20만원 지급" vertex="1">
+          <mxGeometry height="55" width="120" x="930" y="1155" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-105" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#BF360C;fontSize=9;" value="🏗️ 건물 시스템&#xa;대지 → 별장 →&#xa;빌딩 → 호텔" vertex="1">
+          <mxGeometry height="55" width="120" x="650" y="1225" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-106" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#BF360C;fontSize=9;" value="🎫 사회복지기금&#xa;세금 누적 →&#xa;해당 칸 착지 시 수령" vertex="1">
+          <mxGeometry height="55" width="130" x="790" y="1225" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-107" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#BF360C;fontSize=9;" value="🚀 우주여행&#xa;랜덤 위치 이동&#xa;특수 모서리 칸" vertex="1">
+          <mxGeometry height="55" width="120" x="940" y="1225" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-108" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#BF360C;fontSize=9;" value="💀 파산&#xa;잔고 &lt; 0&#xa;소유권 반환, 탈락" vertex="1">
+          <mxGeometry height="55" width="120" x="650" y="1295" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-109" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#BF360C;fontSize=9;" value="🃏 황금열쇠&#xa;30장 카드덱&#xa;14가지 액션" vertex="1">
+          <mxGeometry height="55" width="130" x="790" y="1295" as="geometry" />
+        </mxCell>
+        <mxCell id="RBonZI3s3akOjgRY_8KN-110" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#BF360C;fontSize=9;" value="🛡️ 우대권&#xa;통행료 면제&#xa;저장 가능" vertex="1">
+          <mxGeometry height="55" width="120" x="940" y="1295" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
